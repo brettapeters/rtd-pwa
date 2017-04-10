@@ -1,11 +1,12 @@
 import React from 'react';
-// import * as firebase from 'firebase';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import AppBar from 'material-ui/AppBar';
 import { blue500, blue700, blue100, pink400 } from 'material-ui/styles/colors';
 
 import MessageList from './MessageList.jsx';
+import ChannelList from './ChannelList.jsx';
+import MessageBox from './MessageBox.jsx';
 
 const muiTheme = getMuiTheme({
 	palette: {
@@ -21,20 +22,22 @@ export default class App extends React.Component {
 		super(props, context);
 	}
 
-	// componentDidMount() {
-	// 	const usersRef = firebase.database().ref('users/');
-		
-	// 	usersRef.on('value', snapshot => {
- //  		this.setState({ users: snapshot.val() });
- //  	});
-	// }
-
 	render() {
 		return (
 			<MuiThemeProvider muiTheme={muiTheme}>
 				<div>
 					<AppBar title="RTD-PWA" />
-					<MessageList />
+					<div style={{
+						display: 'flex',
+						flexFlow: 'row wrap',
+						maxWidth: 1200,
+						width: '100%',
+						margin: '30px auto'
+					}}>
+						<ChannelList />
+						<MessageList />
+					</div>
+					<MessageBox />
 				</div>
 		  </MuiThemeProvider>
 		);

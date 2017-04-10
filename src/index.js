@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
+import * as firebase from 'firebase';
+
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
@@ -12,16 +14,7 @@ import { AppContainer } from 'react-hot-loader';
 import App from './components/App.jsx';
 require('./main.scss');
 
-// var config = {
-//   apiKey: "AIzaSyCnVh0zZx_vHP_0_K72zuCBu29_TopTPGE",
-//   authDomain: "rtdeezy-6ff6e.firebaseapp.com",
-//   databaseURL: "https://rtdeezy-6ff6e.firebaseio.com",
-//   projectId: "rtdeezy-6ff6e",
-//   storageBucket: "rtdeezy-6ff6e.appspot.com",
-//   messagingSenderId: "415128902950"
-// };
-// firebase.initializeApp(config);
-// firebase.database()
+firebase.initializeApp(require('../firebase-config'));
 
 const render = (Component) => {
   ReactDOM.render(
